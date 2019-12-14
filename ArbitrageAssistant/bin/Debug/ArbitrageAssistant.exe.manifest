@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ArbitrageAssistant.exe" size="182752">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ArbitrageAssistant.exe" size="183264">
       <assemblyIdentity name="ArbitrageAssistant" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>s4JYoeOOfyBZLrxcGLeYHqCFfLqZNlMAHjDikau79Io=</dsig:DigestValue>
+        <dsig:DigestValue>XxSBONwDV/5aj+9bHv6WUsfZ+uJrYtp8HQxvecfkHMc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

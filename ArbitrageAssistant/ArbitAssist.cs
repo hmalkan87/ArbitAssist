@@ -391,6 +391,14 @@ namespace ArbitrageAssistant
             dgvMain.Columns[5].HeaderText = "Fark";
             dgvMain.Columns[6].HeaderText = "Sonuç";
             dgvMain.Columns[7].HeaderText = "BTC Piyasası İşlem Hacmi";
+            dgvMain.Columns["Symbol"].DisplayIndex = 0;
+            dgvMain.Columns["Value1"].DisplayIndex = 1;
+            dgvMain.Columns["XxxEth"].DisplayIndex = 2;
+            dgvMain.Columns["Value3"].DisplayIndex = 3;
+            dgvMain.Columns["Value4"].DisplayIndex = 4;
+            dgvMain.Columns["Difference"].DisplayIndex = 5;
+            dgvMain.Columns["ResultValue"].DisplayIndex = 6;
+            dgvMain.Columns["QuoteVolume"].DisplayIndex = 7;
             lbl_Header.Text = "Binance Borsası";
             lbl_Subtitle.Text = "İşlem Hacmine Göre Sıralı";
         }
@@ -412,6 +420,14 @@ namespace ArbitrageAssistant
             dgvMain.Columns[5].HeaderText = "Fark";
             dgvMain.Columns[6].HeaderText = "Sonuç";
             dgvMain.Columns[7].HeaderText = "BTC Piyasası İşlem Hacmi";
+            dgvMain.Columns["Symbol"].DisplayIndex = 0;
+            dgvMain.Columns["Value1"].DisplayIndex = 1;
+            dgvMain.Columns["XxxEth"].DisplayIndex = 2;
+            dgvMain.Columns["Value3"].DisplayIndex = 3;
+            dgvMain.Columns["Value4"].DisplayIndex = 4;
+            dgvMain.Columns["Difference"].DisplayIndex = 5;
+            dgvMain.Columns["ResultValue"].DisplayIndex = 6;
+            dgvMain.Columns["QuoteVolume"].DisplayIndex = 7;
             lbl_Header.Text = "Binance Borsası";
             lbl_Subtitle.Text = "Sonuç Değerine Göre Sıralı";
         }
@@ -432,6 +448,14 @@ namespace ArbitrageAssistant
             dgvMain.Columns[5].HeaderText = "Fark";
             dgvMain.Columns[6].HeaderText = "Sonuç";
             dgvMain.Columns[7].HeaderText = "BTC Piyasası İşlem Hacmi";
+            dgvMain.Columns["Symbol"].DisplayIndex = 0;
+            dgvMain.Columns["Value1"].DisplayIndex = 1;
+            dgvMain.Columns["Value2"].DisplayIndex = 2;
+            dgvMain.Columns["Value3"].DisplayIndex = 3;
+            dgvMain.Columns["Value4"].DisplayIndex = 4;
+            dgvMain.Columns["Difference"].DisplayIndex = 5;
+            dgvMain.Columns["ResultValue"].DisplayIndex = 6;
+            dgvMain.Columns["QuoteVolume"].DisplayIndex = 7;
             lbl_Header.Text = "BitZ Borsası";
             lbl_Subtitle.Text = "İşlem Hacmine Göre Sıralı";
         }
@@ -452,6 +476,14 @@ namespace ArbitrageAssistant
             dgvMain.Columns[5].HeaderText = "Fark";
             dgvMain.Columns[6].HeaderText = "Sonuç";
             dgvMain.Columns[7].HeaderText = "BTC Piyasası İşlem Hacmi";
+            dgvMain.Columns["Symbol"].DisplayIndex = 0;
+            dgvMain.Columns["Value1"].DisplayIndex = 1;
+            dgvMain.Columns["Value2"].DisplayIndex = 2;
+            dgvMain.Columns["Value3"].DisplayIndex = 3;
+            dgvMain.Columns["Value4"].DisplayIndex = 4;
+            dgvMain.Columns["Difference"].DisplayIndex = 5;
+            dgvMain.Columns["ResultValue"].DisplayIndex = 6;
+            dgvMain.Columns["QuoteVolume"].DisplayIndex = 7;
             lbl_Header.Text = "BitZ Borsası";
             lbl_Subtitle.Text = "Sonuç Değerine Göre Sıralı";
         }
@@ -469,6 +501,12 @@ namespace ArbitrageAssistant
             dgvMain.Columns[3].HeaderText = "Fark";
             dgvMain.Columns[4].HeaderText = "Sonuç";
             dgvMain.Columns[5].HeaderText = "BTC Piyasası İşlem Hacmi";
+            dgvMain.Columns["Symbol"].DisplayIndex = 0;
+            dgvMain.Columns["Value1"].DisplayIndex = 1;
+            dgvMain.Columns["Value2"].DisplayIndex = 2;
+            dgvMain.Columns["Difference"].DisplayIndex = 3;
+            dgvMain.Columns["ResultValue"].DisplayIndex = 4;
+            dgvMain.Columns["QuoteVolume"].DisplayIndex = 5;
             lbl_Header.Text = "Upbit Borsası";
             lbl_Subtitle.Text = "İşlem Hacmine Göre Sıralı";
         }
@@ -486,6 +524,12 @@ namespace ArbitrageAssistant
             dgvMain.Columns[3].HeaderText = "Fark";
             dgvMain.Columns[4].HeaderText = "Sonuç";
             dgvMain.Columns[5].HeaderText = "BTC Piyasası İşlem Hacmi";
+            dgvMain.Columns["Symbol"].DisplayIndex = 0;
+            dgvMain.Columns["Value1"].DisplayIndex = 1;
+            dgvMain.Columns["Value2"].DisplayIndex = 2;
+            dgvMain.Columns["Difference"].DisplayIndex = 3;
+            dgvMain.Columns["ResultValue"].DisplayIndex = 4;
+            dgvMain.Columns["QuoteVolume"].DisplayIndex = 5;
             lbl_Header.Text = "Upbit Borsası";
             lbl_Subtitle.Text = "Sonuç Değerine Göre Sıralı";
         }
