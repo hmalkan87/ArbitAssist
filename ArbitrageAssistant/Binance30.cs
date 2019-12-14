@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using ArbitrageAssistant.Entities;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ using static ArbitrageAssistant.ArbitAssist;
 
 namespace ArbitrageAssistant
 {
-    public class Binance30
+    class Binance30
     {
         WebClient c = new WebClient();
 

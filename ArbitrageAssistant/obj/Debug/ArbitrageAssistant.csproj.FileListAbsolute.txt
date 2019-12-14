@@ -21,7 +21,6 @@ C:\Users\hmalk\Source\Repos\ArbitAssist\ArbitrageAssistant\bin\Debug\ArbitrageAs
 C:\Users\hmalk\Source\Repos\ArbitAssist\ArbitrageAssistant\bin\Debug\ArbitrageAssistant.pdb
 C:\Users\hmalk\Source\Repos\ArbitAssist\ArbitrageAssistant\bin\Debug\Newtonsoft.Json.dll
 C:\Users\hmalk\Source\Repos\ArbitAssist\ArbitrageAssistant\bin\Debug\Newtonsoft.Json.xml
-C:\Users\hmalk\Source\Repos\ArbitAssist\ArbitrageAssistant\obj\Debug\ArbitrageAssistant.csprojAssemblyReference.cache
 C:\Users\hmalk\Source\Repos\ArbitAssist\ArbitrageAssistant\obj\Debug\ArbitrageAssistant.ArbitAssist.resources
 C:\Users\hmalk\Source\Repos\ArbitAssist\ArbitrageAssistant\obj\Debug\ArbitrageAssistant.Properties.Resources.resources
 C:\Users\hmalk\Source\Repos\ArbitAssist\ArbitrageAssistant\obj\Debug\ArbitrageAssistant.csproj.GenerateResource.cache
@@ -30,3 +29,4 @@ C:\Users\hmalk\Source\Repos\ArbitAssist\ArbitrageAssistant\obj\Debug\ArbitrageAs
 C:\Users\hmalk\Source\Repos\ArbitAssist\ArbitrageAssistant\obj\Debug\ArbitrageAssistant.csproj.CopyComplete
 C:\Users\hmalk\Source\Repos\ArbitAssist\ArbitrageAssistant\obj\Debug\ArbitrageAssistant.exe
 C:\Users\hmalk\Source\Repos\ArbitAssist\ArbitrageAssistant\obj\Debug\ArbitrageAssistant.pdb
+C:\Users\hmalk\Source\Repos\ArbitAssist\ArbitrageAssistant\obj\Debug\ArbitrageAssistant.csprojAssemblyReference.cache

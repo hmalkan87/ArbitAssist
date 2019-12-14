@@ -92,6 +92,16 @@
     <Compile Include="Binance30.cs" />
     <Compile Include="Bitz.cs" />
     <Compile Include="Bitz30.cs" />
+    <Compile Include="Entities\BinanceModel.cs" />
+    <Compile Include="Entities\BitZJson.cs" />
+    <Compile Include="Entities\BitzModel.cs" />
+    <Compile Include="Entities\BRatio.cs" />
+    <Compile Include="Entities\Data.cs" />
+    <Compile Include="Entities\Ratio.cs" />
+    <Compile Include="Entities\RatioModel.cs" />
+    <Compile Include="Entities\Ticker.cs" />
+    <Compile Include="Entities\UpbitModel.cs" />
+    <Compile Include="Entities\UpbitPair.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Upbit30.cs" />
