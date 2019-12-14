@@ -37,29 +37,29 @@
             this.tssl_Status = new System.Windows.Forms.ToolStripStatusLabel();
             this.tssl_RefreshPeriod = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tsb_Binance = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsb_Binance30 = new System.Windows.Forms.ToolStripButton();
+            this.tsl_Space01 = new System.Windows.Forms.ToolStripLabel();
+            this.tsb_Bitz = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.tsl_Space02 = new System.Windows.Forms.ToolStripLabel();
+            this.tsb_Upbit = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsb_Upbit30 = new System.Windows.Forms.ToolStripButton();
+            this.tsl_Space03 = new System.Windows.Forms.ToolStripLabel();
             this.tspRefresh = new System.Windows.Forms.ToolStripButton();
             this.tssb_RefreshPeriod = new System.Windows.Forms.ToolStripSplitButton();
             this.saniyeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saniyeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.saniyeToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.saniyeToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsb_Binance = new System.Windows.Forms.ToolStripButton();
-            this.tsb_Binance30 = new System.Windows.Forms.ToolStripButton();
-            this.tsb_Bitz = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.tsb_Upbit = new System.Windows.Forms.ToolStripButton();
-            this.tsb_Upbit30 = new System.Windows.Forms.ToolStripButton();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.lbl_Header = new System.Windows.Forms.Label();
             this.lbl_Subtitle = new System.Windows.Forms.Label();
             this.rb_ResultValue = new System.Windows.Forms.RadioButton();
             this.rb_QuoteVolume = new System.Windows.Forms.RadioButton();
-            this.tsl_Space01 = new System.Windows.Forms.ToolStripLabel();
-            this.tsl_Space02 = new System.Windows.Forms.ToolStripLabel();
-            this.tsl_Space03 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMain)).BeginInit();
             this.ss_Status.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -124,18 +124,18 @@
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsb_Binance,
-            this.toolStripSeparator2,
-            this.tsb_Binance30,
-            this.tsl_Space01,
-            this.tsb_Bitz,
-            this.toolStripSeparator3,
-            this.toolStripButton1,
-            this.tsl_Space02,
-            this.tsb_Upbit,
-            this.toolStripSeparator1,
-            this.tsb_Upbit30,
             this.tsl_Space03,
+            this.toolStripButton1,
+            this.toolStripSeparator3,
+            this.tsb_Bitz,
+            this.tsl_Space02,
+            this.tsb_Binance30,
+            this.toolStripSeparator1,
+            this.tsb_Upbit,
+            this.tsl_Space01,
+            this.tsb_Upbit30,
+            this.toolStripSeparator2,
+            this.tsb_Binance,
             this.tspRefresh,
             this.tssb_RefreshPeriod});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
@@ -145,9 +145,111 @@
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
+            // tsb_Binance
+            // 
+            this.tsb_Binance.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tsb_Binance.Image = ((System.Drawing.Image)(resources.GetObject("tsb_Binance.Image")));
+            this.tsb_Binance.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_Binance.Name = "tsb_Binance";
+            this.tsb_Binance.Size = new System.Drawing.Size(69, 22);
+            this.tsb_Binance.Text = "Binance";
+            this.tsb_Binance.ToolTipText = "İşlem Hacmine Göre Sıralı";
+            this.tsb_Binance.Click += new System.EventHandler(this.Binance_Run);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // tsb_Binance30
+            // 
+            this.tsb_Binance30.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tsb_Binance30.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_Binance30.Name = "tsb_Binance30";
+            this.tsb_Binance30.Size = new System.Drawing.Size(73, 22);
+            this.tsb_Binance30.Text = "Binance(30)";
+            this.tsb_Binance30.ToolTipText = "Sonuç Değerine Göre İlk 30 ve Son 30";
+            this.tsb_Binance30.Click += new System.EventHandler(this.Binance30_Run);
+            // 
+            // tsl_Space01
+            // 
+            this.tsl_Space01.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tsl_Space01.Name = "tsl_Space01";
+            this.tsl_Space01.Size = new System.Drawing.Size(10, 22);
+            this.tsl_Space01.Text = " ";
+            // 
+            // tsb_Bitz
+            // 
+            this.tsb_Bitz.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tsb_Bitz.Image = ((System.Drawing.Image)(resources.GetObject("tsb_Bitz.Image")));
+            this.tsb_Bitz.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_Bitz.Name = "tsb_Bitz";
+            this.tsb_Bitz.Size = new System.Drawing.Size(48, 22);
+            this.tsb_Bitz.Text = "BitZ";
+            this.tsb_Bitz.ToolTipText = "İşlem Hacmine Göre Sıralı";
+            this.tsb_Bitz.Click += new System.EventHandler(this.Bitz_Run);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(52, 22);
+            this.toolStripButton1.Text = "BitZ(30)";
+            this.toolStripButton1.ToolTipText = "Sonuç Değerine Göre İlk 30 ve Son 30";
+            this.toolStripButton1.Click += new System.EventHandler(this.Bitz30_Run);
+            // 
+            // tsl_Space02
+            // 
+            this.tsl_Space02.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tsl_Space02.Name = "tsl_Space02";
+            this.tsl_Space02.Size = new System.Drawing.Size(10, 22);
+            this.tsl_Space02.Text = " ";
+            // 
+            // tsb_Upbit
+            // 
+            this.tsb_Upbit.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tsb_Upbit.Image = ((System.Drawing.Image)(resources.GetObject("tsb_Upbit.Image")));
+            this.tsb_Upbit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_Upbit.Name = "tsb_Upbit";
+            this.tsb_Upbit.Size = new System.Drawing.Size(56, 22);
+            this.tsb_Upbit.Text = "Upbit";
+            this.tsb_Upbit.ToolTipText = "İşlem Hacmine Göre Sıralı";
+            this.tsb_Upbit.Click += new System.EventHandler(this.Upbit_Run);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // tsb_Upbit30
+            // 
+            this.tsb_Upbit30.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tsb_Upbit30.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_Upbit30.Name = "tsb_Upbit30";
+            this.tsb_Upbit30.Size = new System.Drawing.Size(60, 22);
+            this.tsb_Upbit30.Text = "Upbit(30)";
+            this.tsb_Upbit30.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.tsb_Upbit30.ToolTipText = "Sonuç Değerine Göre İlk 30 ve Son 30";
+            this.tsb_Upbit30.Click += new System.EventHandler(this.Upbit30_Run);
+            // 
+            // tsl_Space03
+            // 
+            this.tsl_Space03.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tsl_Space03.Name = "tsl_Space03";
+            this.tsl_Space03.Size = new System.Drawing.Size(19, 22);
+            this.tsl_Space03.Text = "    ";
+            // 
             // tspRefresh
             // 
-            this.tspRefresh.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.tspRefresh.AutoSize = false;
             this.tspRefresh.Image = ((System.Drawing.Image)(resources.GetObject("tspRefresh.Image")));
             this.tspRefresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -156,12 +258,10 @@
             this.tspRefresh.Size = new System.Drawing.Size(124, 22);
             this.tspRefresh.Text = "Yenilemeyi Kapat";
             this.tspRefresh.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.tspRefresh.ToolTipText = "Yenilemeyi Kapat";
             this.tspRefresh.Click += new System.EventHandler(this.Timer_Stop);
             // 
             // tssb_RefreshPeriod
             // 
-            this.tssb_RefreshPeriod.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.tssb_RefreshPeriod.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.tssb_RefreshPeriod.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.saniyeToolStripMenuItem,
@@ -202,63 +302,6 @@
             this.saniyeToolStripMenuItem3.Text = "30 saniye";
             this.saniyeToolStripMenuItem3.Click += new System.EventHandler(this.Set_TimerInterval_30);
             // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // tsb_Binance
-            // 
-            this.tsb_Binance.Image = ((System.Drawing.Image)(resources.GetObject("tsb_Binance.Image")));
-            this.tsb_Binance.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_Binance.Name = "tsb_Binance";
-            this.tsb_Binance.Size = new System.Drawing.Size(69, 22);
-            this.tsb_Binance.Text = "Binance";
-            this.tsb_Binance.Click += new System.EventHandler(this.Binance_Run);
-            // 
-            // tsb_Binance30
-            // 
-            this.tsb_Binance30.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_Binance30.Name = "tsb_Binance30";
-            this.tsb_Binance30.Size = new System.Drawing.Size(73, 22);
-            this.tsb_Binance30.Text = "Binance(30)";
-            this.tsb_Binance30.Click += new System.EventHandler(this.Binance30_Run);
-            // 
-            // tsb_Bitz
-            // 
-            this.tsb_Bitz.Image = ((System.Drawing.Image)(resources.GetObject("tsb_Bitz.Image")));
-            this.tsb_Bitz.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_Bitz.Name = "tsb_Bitz";
-            this.tsb_Bitz.Size = new System.Drawing.Size(48, 22);
-            this.tsb_Bitz.Text = "BitZ";
-            this.tsb_Bitz.Click += new System.EventHandler(this.Bitz_Run);
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(52, 22);
-            this.toolStripButton1.Text = "BitZ(30)";
-            this.toolStripButton1.Click += new System.EventHandler(this.Bitz30_Run);
-            // 
-            // tsb_Upbit
-            // 
-            this.tsb_Upbit.Image = ((System.Drawing.Image)(resources.GetObject("tsb_Upbit.Image")));
-            this.tsb_Upbit.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_Upbit.Name = "tsb_Upbit";
-            this.tsb_Upbit.Size = new System.Drawing.Size(56, 22);
-            this.tsb_Upbit.Text = "Upbit";
-            this.tsb_Upbit.Click += new System.EventHandler(this.Upbit_Run);
-            // 
-            // tsb_Upbit30
-            // 
-            this.tsb_Upbit30.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_Upbit30.Name = "tsb_Upbit30";
-            this.tsb_Upbit30.Size = new System.Drawing.Size(60, 22);
-            this.tsb_Upbit30.Text = "Upbit(30)";
-            this.tsb_Upbit30.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.tsb_Upbit30.Click += new System.EventHandler(this.Upbit30_Run);
-            // 
             // notifyIcon1
             // 
             this.notifyIcon1.Text = "notifyIcon1";
@@ -268,7 +311,7 @@
             // 
             this.lbl_Header.AutoSize = true;
             this.lbl_Header.Font = new System.Drawing.Font("Microsoft Uighur", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Header.Location = new System.Drawing.Point(12, 25);
+            this.lbl_Header.Location = new System.Drawing.Point(12, 23);
             this.lbl_Header.Name = "lbl_Header";
             this.lbl_Header.Size = new System.Drawing.Size(187, 57);
             this.lbl_Header.TabIndex = 3;
@@ -279,7 +322,7 @@
             this.lbl_Subtitle.AutoSize = true;
             this.lbl_Subtitle.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lbl_Subtitle.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.lbl_Subtitle.Location = new System.Drawing.Point(20, 68);
+            this.lbl_Subtitle.Location = new System.Drawing.Point(20, 70);
             this.lbl_Subtitle.Name = "lbl_Subtitle";
             this.lbl_Subtitle.Size = new System.Drawing.Size(423, 20);
             this.lbl_Subtitle.TabIndex = 4;
@@ -311,34 +354,6 @@
             this.rb_QuoteVolume.Visible = false;
             this.rb_QuoteVolume.Click += new System.EventHandler(this.Binance_Run);
             // 
-            // tsl_Space01
-            // 
-            this.tsl_Space01.Name = "tsl_Space01";
-            this.tsl_Space01.Size = new System.Drawing.Size(10, 22);
-            this.tsl_Space01.Text = " ";
-            // 
-            // tsl_Space02
-            // 
-            this.tsl_Space02.Name = "tsl_Space02";
-            this.tsl_Space02.Size = new System.Drawing.Size(10, 22);
-            this.tsl_Space02.Text = " ";
-            // 
-            // tsl_Space03
-            // 
-            this.tsl_Space03.Name = "tsl_Space03";
-            this.tsl_Space03.Size = new System.Drawing.Size(37, 22);
-            this.tsl_Space03.Text = "          ";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
-            // 
             // ArbitAssist
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -347,10 +362,10 @@
             this.Controls.Add(this.rb_QuoteVolume);
             this.Controls.Add(this.rb_ResultValue);
             this.Controls.Add(this.lbl_Subtitle);
-            this.Controls.Add(this.lbl_Header);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.ss_Status);
             this.Controls.Add(this.dgvMain);
+            this.Controls.Add(this.lbl_Header);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ArbitAssist";
             this.Text = "ArbitAssist";
@@ -377,7 +392,7 @@
         private System.Windows.Forms.ToolStripMenuItem saniyeToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem saniyeToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem saniyeToolStripMenuItem3;
-        private System.Windows.Forms.Label lbl_Header;
+        public System.Windows.Forms.Label lbl_Header;
         private System.Windows.Forms.Label lbl_Subtitle;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton tsb_Binance;

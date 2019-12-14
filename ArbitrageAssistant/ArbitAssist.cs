@@ -22,29 +22,14 @@ namespace ArbitrageAssistant
         }
 
         string market = null;
-        Binance30 binance30 = new Binance30();
+
         Binance binance = new Binance();
+        Binance30 binance30 = new Binance30();
         Bitz bitz = new Bitz();
         Bitz30 bitz30 = new Bitz30();
-        Upbit30 upbit30 = new Upbit30();
         Upbit upbit = new Upbit();
-        private void ArbitAssist_Load(object sender, EventArgs e)
-        {
-            foreach (var item in dgvMain.Rows)
-            {
-                //DataGridViewRow row = dgvMain.Rows;
-                //item.
-                //item.DefaultCellStyle.ForeColor = Color.PowderBlue;
+        Upbit30 upbit30 = new Upbit30();
 
-                //if (true)
-                //{
-                //    row.
-                //    row.DefaultCellStyle.ForeColor = Color.PowderBlue;
-                //    row.DefaultCellStyle.SelectionForeColor = Color.CadetBlue;
-                //}
-            }
-            timer2.Start();
-        }
 
         //private void Select_Market(object sender, EventArgs e)
         //{
@@ -106,8 +91,9 @@ namespace ArbitrageAssistant
         {
             lbl_Header.Text = "Yükleniyor..";
             lbl_Subtitle.Text = "Veriler alınıyor..";
+            Application.DoEvents();
+
             market = "Binance";
-            //binance.BinanceF();
             List<BinanceModel> finalList = binance.BinanceF();
             dgvMain.DataSource = finalList;
             dgvMain.Columns[0].HeaderText = "Sembol";
@@ -134,9 +120,10 @@ namespace ArbitrageAssistant
         {
             lbl_Header.Text = "Yükleniyor..";
             lbl_Subtitle.Text = "Veriler alınıyor..";
+            Application.DoEvents();
+
             market = "Binance30";
             rb_ResultValue.Checked = true;
-            //binance30.Binance30F();
             List<BinanceModel> finalList = binance30.Binance30F();
             dgvMain.DataSource = finalList;
             dgvMain.Columns[0].HeaderText = "Sembol";
@@ -163,8 +150,9 @@ namespace ArbitrageAssistant
         {
             lbl_Header.Text = "Yükleniyor..";
             lbl_Subtitle.Text = "Veriler alınıyor..";
+            Application.DoEvents();
+
             market = "Bitz";
-            //bitz.BitzF();
             List<BitzModel> finalList = bitz.BitzF();
             dgvMain.DataSource = finalList;
             dgvMain.Columns[0].HeaderText = "Sembol";
@@ -191,8 +179,9 @@ namespace ArbitrageAssistant
         {
             lbl_Header.Text = "Yükleniyor..";
             lbl_Subtitle.Text = "Veriler alınıyor..";
+            Application.DoEvents();
+
             market = "Bitz30";
-            //bitz.BitzF();
             List<BitzModel> finalList = bitz30.Bitz30F();
             dgvMain.DataSource = finalList;
             dgvMain.Columns[0].HeaderText = "Sembol";
@@ -219,6 +208,8 @@ namespace ArbitrageAssistant
         {
             lbl_Header.Text = "Yükleniyor..";
             lbl_Subtitle.Text = "Veriler alınıyor..";
+            Application.DoEvents();
+
             market = "Upbit";
             List<UpbitModel> finalList = upbit.UpbitF();
             dgvMain.DataSource = finalList;
@@ -242,6 +233,8 @@ namespace ArbitrageAssistant
         {
             lbl_Header.Text = "Yükleniyor..";
             lbl_Subtitle.Text = "Veriler alınıyor..";
+            Application.DoEvents();
+
             market = "Upbit30";
             List<UpbitModel> finalList = upbit30.Upbit30F();
             dgvMain.DataSource = finalList;
@@ -290,6 +283,24 @@ namespace ArbitrageAssistant
             }
             //List<RModel> finalList = binance30.Binance30F();
             dgvMain.DataSource = finalList;
+        }
+
+        private void ArbitAssist_Load(object sender, EventArgs e)
+        {
+            //foreach (var item in dgvMain.Rows)
+            //{
+            //    //DataGridViewRow row = dgvMain.Rows;
+            //    //item.
+            //    //item.DefaultCellStyle.ForeColor = Color.PowderBlue;
+
+            //    //if (true)
+            //    //{
+            //    //    row.
+            //    //    row.DefaultCellStyle.ForeColor = Color.PowderBlue;
+            //    //    row.DefaultCellStyle.SelectionForeColor = Color.CadetBlue;
+            //    //}
+            //}
+            timer2.Start();
         }
 
         //private void dgvMain_CellFormatting(object sender, EventArgs e)
