@@ -14,172 +14,190 @@ namespace ArbitrageAssistant
 {
     class Binance
     {
-        WebClient c = new WebClient();
+        WebClient webClient = new WebClient();
 
         public List<BinanceModel> BinanceF()
         {
+            string allData;
+
             try
             {
-                string allData = c.DownloadString("https://www.binance.com/api/v3/ticker/24hr");
+                allData = webClient.DownloadString("https://www.binance.com/api/v3/ticker/24hr");
+            }
+            catch (Exception ee)
+            {
+                //    ArbitAssist arbitAssist = new ArbitAssist();
+                //    arbitAssist.timer2.Stop();
+                ////arbitAssist.timeronoff = 0;
+                MessageBox.Show("Bağlanamadı! İnternet bağlantınızı kontrol edip uygulamayı tekrar çalıştırmayı deneyin.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //arbitAssist.St();
+                return new List<BinanceModel>();
+            }
 
-                JArray allDataArray = JArray.Parse(allData);
-                BRatio ethBtc = JsonConvert.DeserializeObject<BRatio>(allDataArray[0].ToString());
-                decimal ethBtcLastPrice = Convert.ToDecimal(ethBtc.LastPrice, System.Globalization.CultureInfo.InvariantCulture);
-                BRatio bnbEth = JsonConvert.DeserializeObject<BRatio>(allDataArray[10].ToString());
-                decimal bnbEthLastPrice = Convert.ToDecimal(bnbEth.LastPrice, System.Globalization.CultureInfo.InvariantCulture);
-                BRatio ethUsdt = JsonConvert.DeserializeObject<BRatio>(allDataArray[12].ToString());
-                decimal ethUsdtLastPrice = Convert.ToDecimal(ethUsdt.LastPrice, System.Globalization.CultureInfo.InvariantCulture);
+            JArray allDataArray = JArray.Parse(allData);
+            BRatio ethBtc = JsonConvert.DeserializeObject<BRatio>(allDataArray[0].ToString());
+            decimal ethBtcLastPrice = Convert.ToDecimal(ethBtc.LastPrice, System.Globalization.CultureInfo.InvariantCulture);
+            BRatio bnbEth = JsonConvert.DeserializeObject<BRatio>(allDataArray[10].ToString());
+            decimal bnbEthLastPrice = Convert.ToDecimal(bnbEth.LastPrice, System.Globalization.CultureInfo.InvariantCulture);
+            BRatio ethUsdt = JsonConvert.DeserializeObject<BRatio>(allDataArray[12].ToString());
+            decimal ethUsdtLastPrice = Convert.ToDecimal(ethUsdt.LastPrice, System.Globalization.CultureInfo.InvariantCulture);
 
 
-                List<RatioModel> bRatiosOverBTC = new List<RatioModel>();
-                List<BRatio> bRatiosOverETH = new List<BRatio>();
-                List<RatioModel> bRatiosOverBNB = new List<RatioModel>();
-                List<RatioModel> bRatiosOverUSDT = new List<RatioModel>();
-                foreach (var item in allDataArray)
+            List<RatioModel> bRatiosOverBTC = new List<RatioModel>();
+            List<BRatio> bRatiosOverETH = new List<BRatio>();
+            List<RatioModel> bRatiosOverBNB = new List<RatioModel>();
+            List<RatioModel> bRatiosOverUSDT = new List<RatioModel>();
+            foreach (var item in allDataArray)
+            {
+                BRatio bRatio = JsonConvert.DeserializeObject<BRatio>(item.ToString());
+
+                if (bRatio.Symbol.Substring(bRatio.Symbol.Length - 3).Contains("BTC"))
                 {
-                    BRatio bRatio = JsonConvert.DeserializeObject<BRatio>(item.ToString());
-
-                    if (bRatio.Symbol.Substring(bRatio.Symbol.Length - 3).Contains("BTC"))
+                    RatioModel ratioModel = new RatioModel
                     {
-                        RatioModel ratioModel = new RatioModel
-                        {
-                            Symbol = bRatio.Symbol,
-                            LastPrice = bRatio.LastPrice,
-                            QuoteVolume = bRatio.QuoteVolume
-                        };
+                        Symbol = bRatio.Symbol,
+                        LastPrice = bRatio.LastPrice,
+                        QuoteVolume = bRatio.QuoteVolume
+                    };
 
-                        bRatiosOverBTC.Add(ratioModel);
-                        decimal ratioModelLastPrice = Convert.ToDecimal(ratioModel.LastPrice, System.Globalization.CultureInfo.InvariantCulture);
-                        ratioModel.Value1 = (ratioModelLastPrice / ethBtcLastPrice).ToString("0.########", System.Globalization.CultureInfo.InvariantCulture);
-                    }
-
-                    if (bRatio.Symbol.Substring(bRatio.Symbol.Length - 3).Contains("ETH"))
-                    {
-                        bRatiosOverETH.Add(bRatio);
-                        //decimal ratioModelLastPrice = Convert.ToDecimal(bRatio.LastPrice, System.Globalization.CultureInfo.InvariantCulture);
-                    }
-
-                    if (bRatio.Symbol.Substring(bRatio.Symbol.Length - 3).Contains("BNB"))
-                    {
-                        RatioModel ratioModel = new RatioModel
-                        {
-                            Symbol = bRatio.Symbol,
-                            LastPrice = bRatio.LastPrice,
-                            QuoteVolume = bRatio.QuoteVolume
-                        };
-                        bRatiosOverBNB.Add(ratioModel);
-                        decimal ratioModelLastPrice = Convert.ToDecimal(ratioModel.LastPrice, System.Globalization.CultureInfo.InvariantCulture);
-                        ratioModel.Value3 = (ratioModelLastPrice * bnbEthLastPrice).ToString("0.########", System.Globalization.CultureInfo.InvariantCulture);
-                    }
-
-                    if (bRatio.Symbol.Substring(bRatio.Symbol.Length - 4).Contains("USDT"))
-                    {
-                        RatioModel ratioModel = new RatioModel
-                        {
-                            Symbol = bRatio.Symbol,
-                            LastPrice = bRatio.LastPrice,
-                            QuoteVolume = bRatio.QuoteVolume
-                        };
-                        bRatiosOverUSDT.Add(ratioModel);
-                        decimal ratioModelLastPrice = Convert.ToDecimal(ratioModel.LastPrice, System.Globalization.CultureInfo.InvariantCulture);
-                        ratioModel.Value4 = (ratioModelLastPrice / ethUsdtLastPrice).ToString("0.########", System.Globalization.CultureInfo.InvariantCulture);
-                    }
+                    bRatiosOverBTC.Add(ratioModel);
+                    decimal ratioModelLastPrice = Convert.ToDecimal(ratioModel.LastPrice, System.Globalization.CultureInfo.InvariantCulture);
+                    ratioModel.Value1 = (ratioModelLastPrice / ethBtcLastPrice).ToString("0.########", System.Globalization.CultureInfo.InvariantCulture);
                 }
 
-                var bRatiosOverBtcInOrder = bRatiosOverBTC.OrderBy(ratioModel => decimal.Parse(ratioModel.QuoteVolume)).Reverse();
-
-                IDictionary<string, RatioModel> btcDict = new Dictionary<string, RatioModel>();
-
-                foreach (var item in bRatiosOverBtcInOrder)
+                if (bRatio.Symbol.Substring(bRatio.Symbol.Length - 3).Contains("ETH"))
                 {
-                    btcDict.Add(item.Symbol.Substring(0, item.Symbol.Length - 3), item);
+                    bRatiosOverETH.Add(bRatio);
+                    //decimal ratioModelLastPrice = Convert.ToDecimal(bRatio.LastPrice, System.Globalization.CultureInfo.InvariantCulture);
                 }
 
-                foreach (var ethItem in bRatiosOverETH)
+                if (bRatio.Symbol.Substring(bRatio.Symbol.Length - 3).Contains("BNB"))
                 {
-                    if (btcDict.Keys.Contains(ethItem.Symbol.Substring(0, ethItem.Symbol.Length - 3)))
+                    RatioModel ratioModel = new RatioModel
                     {
-                        btcDict[ethItem.Symbol.Substring(0, ethItem.Symbol.Length - 3)].XxxEth = ethItem.LastPrice;
-                    }
+                        Symbol = bRatio.Symbol,
+                        LastPrice = bRatio.LastPrice,
+                        QuoteVolume = bRatio.QuoteVolume
+                    };
+                    bRatiosOverBNB.Add(ratioModel);
+                    decimal ratioModelLastPrice = Convert.ToDecimal(ratioModel.LastPrice, System.Globalization.CultureInfo.InvariantCulture);
+                    ratioModel.Value3 = (ratioModelLastPrice * bnbEthLastPrice).ToString("0.########", System.Globalization.CultureInfo.InvariantCulture);
                 }
 
-                foreach (var bnbItem in bRatiosOverBNB)
+                if (bRatio.Symbol.Substring(bRatio.Symbol.Length - 4).Contains("USDT"))
                 {
-                    if (btcDict.Keys.Contains(bnbItem.Symbol.Substring(0, bnbItem.Symbol.Length - 3)))
+                    RatioModel ratioModel = new RatioModel
                     {
-                        btcDict[bnbItem.Symbol.Substring(0, bnbItem.Symbol.Length - 3)].Value3 = bnbItem.Value3;
-                    }
+                        Symbol = bRatio.Symbol,
+                        LastPrice = bRatio.LastPrice,
+                        QuoteVolume = bRatio.QuoteVolume
+                    };
+                    bRatiosOverUSDT.Add(ratioModel);
+                    decimal ratioModelLastPrice = Convert.ToDecimal(ratioModel.LastPrice, System.Globalization.CultureInfo.InvariantCulture);
+                    ratioModel.Value4 = (ratioModelLastPrice / ethUsdtLastPrice).ToString("0.########", System.Globalization.CultureInfo.InvariantCulture);
                 }
+            }
 
-                foreach (var usdtItem in bRatiosOverUSDT)
+            var bRatiosOverBtcInOrder = bRatiosOverBTC.OrderBy(ratioModel => decimal.Parse(ratioModel.QuoteVolume)).Reverse();
+
+            IDictionary<string, RatioModel> btcDict = new Dictionary<string, RatioModel>();
+
+            foreach (var item in bRatiosOverBtcInOrder)
+            {
+                btcDict.Add(item.Symbol.Substring(0, item.Symbol.Length - 3), item);
+            }
+
+            foreach (var ethItem in bRatiosOverETH)
+            {
+                if (btcDict.Keys.Contains(ethItem.Symbol.Substring(0, ethItem.Symbol.Length - 3)))
                 {
-                    if (btcDict.Keys.Contains(usdtItem.Symbol.Substring(0, usdtItem.Symbol.Length - 4)))
-                    {
-                        btcDict[usdtItem.Symbol.Substring(0, usdtItem.Symbol.Length - 4)].Value4 = usdtItem.Value4;
-                    }
+                    btcDict[ethItem.Symbol.Substring(0, ethItem.Symbol.Length - 3)].XxxEth = ethItem.LastPrice;
                 }
+            }
 
-                foreach (var ratioModel in bRatiosOverBtcInOrder)
+            foreach (var bnbItem in bRatiosOverBNB)
+            {
+                if (btcDict.Keys.Contains(bnbItem.Symbol.Substring(0, bnbItem.Symbol.Length - 3)))
                 {
-                    if (Convert.ToDecimal(ratioModel.QuoteVolume, System.Globalization.CultureInfo.InvariantCulture) > 0)
-                    {
+                    btcDict[bnbItem.Symbol.Substring(0, bnbItem.Symbol.Length - 3)].Value3 = bnbItem.Value3;
+                }
+            }
 
-                        decimal[] valuesInRow = { Convert.ToDecimal(ratioModel.Value1, System.Globalization.CultureInfo.InvariantCulture),
+            foreach (var usdtItem in bRatiosOverUSDT)
+            {
+                if (btcDict.Keys.Contains(usdtItem.Symbol.Substring(0, usdtItem.Symbol.Length - 4)))
+                {
+                    btcDict[usdtItem.Symbol.Substring(0, usdtItem.Symbol.Length - 4)].Value4 = usdtItem.Value4;
+                }
+            }
+
+            foreach (var ratioModel in bRatiosOverBtcInOrder)
+            {
+                if (Convert.ToDecimal(ratioModel.QuoteVolume, System.Globalization.CultureInfo.InvariantCulture) > 0)
+                {
+
+                    decimal[] valuesInRow = { Convert.ToDecimal(ratioModel.Value1, System.Globalization.CultureInfo.InvariantCulture),
                                               Convert.ToDecimal(ratioModel.XxxEth, System.Globalization.CultureInfo.InvariantCulture),
                                               Convert.ToDecimal(ratioModel.Value3, System.Globalization.CultureInfo.InvariantCulture),
                                               Convert.ToDecimal(ratioModel.Value4, System.Globalization.CultureInfo.InvariantCulture) };
 
-                        decimal[] valuesInRowNoZero = { };
-                        int i = 0;
+                    decimal[] valuesInRowNoZero = { };
+                    int i = 0;
 
-                        foreach (decimal value in valuesInRow)
+                    foreach (decimal value in valuesInRow)
 
-                            if (value != 0)
-                            {
-                                Array.Resize(ref valuesInRowNoZero, i + 1);
-                                valuesInRowNoZero[i] = value;
-                                i++;
-                            };
+                        if (value != 0)
+                        {
+                            Array.Resize(ref valuesInRowNoZero, i + 1);
+                            valuesInRowNoZero[i] = value;
+                            i++;
+                        };
 
-                        int indexOfMin = Array.IndexOf(valuesInRowNoZero, valuesInRowNoZero.Min());
-                        int indexOfMax = Array.IndexOf(valuesInRowNoZero, valuesInRowNoZero.Max());
-                        int[] rankOfIndex = { indexOfMin, indexOfMax };
-                        decimal difference = valuesInRowNoZero[rankOfIndex.Min()] - valuesInRowNoZero[rankOfIndex.Max()];
-                        ratioModel.Difference = difference.ToString(System.Globalization.CultureInfo.InvariantCulture);
-                        ratioModel.ResultValue = (difference / valuesInRowNoZero[rankOfIndex.Min()]).ToString("0.##########", System.Globalization.CultureInfo.InvariantCulture);
-                    }
-                    else
-                    {
-                        ratioModel.ResultValue = "0";
-                    }
+                    int indexOfMin = Array.IndexOf(valuesInRowNoZero, valuesInRowNoZero.Min());
+                    int indexOfMax = Array.IndexOf(valuesInRowNoZero, valuesInRowNoZero.Max());
+                    int[] rankOfIndex = { indexOfMin, indexOfMax };
+                    decimal difference = valuesInRowNoZero[rankOfIndex.Min()] - valuesInRowNoZero[rankOfIndex.Max()];
+                    ratioModel.Difference = difference.ToString(System.Globalization.CultureInfo.InvariantCulture);
+                    ratioModel.ResultValue = (difference / valuesInRowNoZero[rankOfIndex.Min()]).ToString("0.##########", System.Globalization.CultureInfo.InvariantCulture);
                 }
-
-                var bRatiosOverBtcInOrderList = bRatiosOverBtcInOrder.ToList();
-                List<BinanceModel> FinalList = new List<BinanceModel>();
-                foreach (var item in bRatiosOverBtcInOrderList)
+                else
                 {
-                    BinanceModel rModel = new BinanceModel
-                    {
-                        Symbol = item.Symbol.Substring(0, item.Symbol.Length - 3),
-                        Difference = item.Difference,
-                        ResultValue = item.ResultValue,
-                        Value1 = item.Value1,
-                        Value3 = item.Value3,
-                        Value4 = item.Value4,
-                        XxxEth = item.XxxEth,
-                        QuoteVolume = item.QuoteVolume
-                    };
-
-                    FinalList.Add(rModel);
+                    ratioModel.ResultValue = "0";
                 }
+            }
 
-                return FinalList;
-            }
-            catch (Exception ee)
+            var bRatiosOverBtcInOrderList = bRatiosOverBtcInOrder.ToList();
+            List<BinanceModel> FinalList = new List<BinanceModel>();
+            foreach (var item in bRatiosOverBtcInOrderList)
             {
-                MessageBox.Show("Bağlanamadı! İnternet bağlantınızı kontrol edip uygulamayı tekrar çalıştırmayı deneyin.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return new List<BinanceModel>();
+                BinanceModel rModel = new BinanceModel
+                {
+                    Symbol = item.Symbol.Substring(0, item.Symbol.Length - 3),
+                    Difference = item.Difference,
+                    ResultValue = item.ResultValue,
+                    Value1 = item.Value1,
+                    Value3 = item.Value3,
+                    Value4 = item.Value4,
+                    XxxEth = item.XxxEth,
+                    QuoteVolume = item.QuoteVolume
+                };
+
+                FinalList.Add(rModel);
             }
+            //ArbitAssist arbitAssist = new ArbitAssist();
+            //arbitAssist.timer2.Start();
+
+            //arbitAssist.dgvMain.Columns[0].HeaderText = "Sembol";
+            //arbitAssist.dgvMain.Columns[1].HeaderText = "(XXX/BTC) / (ETH/BTC)";
+            //arbitAssist.dgvMain.Columns[2].HeaderText = "(XXX/ETH)";
+            //arbitAssist.dgvMain.Columns[3].HeaderText = "(XXX/BNB) × (BNB/ETH)";
+            //arbitAssist.dgvMain.Columns[4].HeaderText = "(XXX/USDT) / (ETH/USDT)";
+            //arbitAssist.dgvMain.Columns[5].HeaderText = "Fark";
+            //arbitAssist.dgvMain.Columns[6].HeaderText = "Sonuç";
+            //arbitAssist.dgvMain.Columns[7].HeaderText = "BTC Piyasası İşlem Hacmi";
+
+            return FinalList;
+
         }
     }
 }

@@ -73,7 +73,6 @@ namespace ArbitrageAssistant
 
         private void Timer_Stop(object sender, EventArgs e)
         {
-
             switch (tspRefresh.Text)
             {
                 case "Yenilemeyi Aç":
@@ -87,15 +86,31 @@ namespace ArbitrageAssistant
             }
         }
 
+        //public void St()
+        //{
+        //    timer2.Stop();
+        //}
+
         private void Binance_Run(object sender, EventArgs e)
         {
+            List<BinanceModel> finalList = null;
             lbl_Header.Text = "Yükleniyor..";
             lbl_Subtitle.Text = "Veriler alınıyor..";
             Application.DoEvents();
 
             market = "Binance";
-            List<BinanceModel> finalList = binance.BinanceF();
+            finalList = binance.BinanceF();
             dgvMain.DataSource = finalList;
+
+            if (finalList.Count != 0)
+            {
+                timer2.Start();
+            }
+            else
+            {
+                timer2.Stop();
+            }
+
             dgvMain.Columns[0].HeaderText = "Sembol";
             dgvMain.Columns[1].HeaderText = "(XXX/BTC) / (ETH/BTC)";
             dgvMain.Columns[2].HeaderText = "(XXX/ETH)";
@@ -126,6 +141,10 @@ namespace ArbitrageAssistant
             rb_ResultValue.Checked = true;
             List<BinanceModel> finalList = binance30.Binance30F();
             dgvMain.DataSource = finalList;
+            if (finalList.Count != 0)
+            {
+                timer2.Start();
+            }
             dgvMain.Columns[0].HeaderText = "Sembol";
             dgvMain.Columns[1].HeaderText = "(XXX/BTC) / (ETH/BTC)";
             dgvMain.Columns[2].HeaderText = "(XXX/ETH)";
@@ -155,6 +174,10 @@ namespace ArbitrageAssistant
             market = "Bitz";
             List<BitzModel> finalList = bitz.BitzF();
             dgvMain.DataSource = finalList;
+            if (finalList.Count != 0)
+            {
+                timer2.Start();
+            }
             dgvMain.Columns[0].HeaderText = "Sembol";
             dgvMain.Columns[1].HeaderText = "(XXX/BTC) × (BTC/DKKT)";
             dgvMain.Columns[2].HeaderText = "(XXX/ETH) × (ETH/DKKT)";
@@ -184,6 +207,10 @@ namespace ArbitrageAssistant
             market = "Bitz30";
             List<BitzModel> finalList = bitz30.Bitz30F();
             dgvMain.DataSource = finalList;
+            if (finalList.Count != 0)
+            {
+                timer2.Start();
+            }
             dgvMain.Columns[0].HeaderText = "Sembol";
             dgvMain.Columns[1].HeaderText = "(XXX/BTC) × (BTC/DKKT)";
             dgvMain.Columns[2].HeaderText = "(XXX/ETH) × (ETH/DKKT)";
@@ -213,6 +240,10 @@ namespace ArbitrageAssistant
             market = "Upbit";
             List<UpbitModel> finalList = upbit.UpbitF();
             dgvMain.DataSource = finalList;
+            if (finalList.Count != 0)
+            {
+                timer2.Start();
+            }
             dgvMain.Columns[0].HeaderText = "Sembol";
             dgvMain.Columns[1].HeaderText = "(XXX/BTC)×(BTC/USDT)";
             dgvMain.Columns[2].HeaderText = "(XXX/USDT)";
@@ -231,13 +262,18 @@ namespace ArbitrageAssistant
 
         private void Upbit30_Run(object sender, EventArgs e)
         {
+            List<UpbitModel> finalList = null;
             lbl_Header.Text = "Yükleniyor..";
             lbl_Subtitle.Text = "Veriler alınıyor..";
             Application.DoEvents();
 
             market = "Upbit30";
-            List<UpbitModel> finalList = upbit30.Upbit30F();
+            finalList = upbit30.Upbit30F();
             dgvMain.DataSource = finalList;
+            if (finalList.Count != 0)
+            {
+                timer2.Start();
+            }
             dgvMain.Columns[0].HeaderText = "Sembol";
             dgvMain.Columns[1].HeaderText = "(XXX/BTC)×(BTC/USDT)";
             dgvMain.Columns[2].HeaderText = "(XXX/USDT)";
@@ -254,36 +290,6 @@ namespace ArbitrageAssistant
             lbl_Subtitle.Text = "Sonuç Değerine Göre Sıralı";
         }
 
-        private void timer2_Tick(object sender, EventArgs e)
-        {
-            //SetInfo();
-            //binance30.Binance30F();
-            object finalList = null;
-            //List<BitzModel> finalList = null;
-            switch (market)
-            {
-                case "Binance":
-                    finalList = binance.BinanceF();
-                    break;
-                case "Binance30":
-                    finalList = binance30.Binance30F();
-                    break;
-                case "Bitz":
-                    finalList = bitz.BitzF();
-                    break;
-                case "Bitz30":
-                    finalList = bitz30.Bitz30F();
-                    break;
-                case "Upbit":
-                    finalList = upbit.UpbitF();
-                    break;
-                case "Upbit30":
-                    finalList = upbit30.Upbit30F();
-                    break;
-            }
-            //List<RModel> finalList = binance30.Binance30F();
-            dgvMain.DataSource = finalList;
-        }
 
         private void ArbitAssist_Load(object sender, EventArgs e)
         {
@@ -300,7 +306,7 @@ namespace ArbitrageAssistant
             //    //    row.DefaultCellStyle.SelectionForeColor = Color.CadetBlue;
             //    //}
             //}
-            timer2.Start();
+            //timer2.Start();
         }
 
         //private void dgvMain_CellFormatting(object sender, EventArgs e)
@@ -330,5 +336,94 @@ namespace ArbitrageAssistant
         //        //        }
         //    }
         //}
+        //public int timeronoff = 1;
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            //SetInfo();
+            //binance30.Binance30F();
+            object finalList = null;
+            //List<BitzModel> finalList = null;
+
+            switch (market)
+            {
+                case "Binance":
+                    finalList = binance.BinanceF();
+
+                    List<BinanceModel> f1 = (List<BinanceModel>)finalList;
+                    if (f1.Count == 0)
+                    {
+                        timer2.Stop();
+                    }
+
+                    break;
+                case "Binance30":
+                    finalList = binance30.Binance30F();
+
+                    List<BinanceModel> f2 = (List<BinanceModel>)finalList;
+                    if (f2.Count == 0)
+                    {
+                        timer2.Stop();
+                    }
+
+                    break;
+                case "Bitz":
+                    finalList = bitz.BitzF();
+
+                    List<BitzModel> f3 = (List<BitzModel>)finalList;
+                    if (f3.Count == 0)
+                    {
+                        timer2.Stop();
+                    }
+
+                    break;
+                case "Bitz30":
+                    finalList = bitz30.Bitz30F();
+
+                    List<BitzModel> f4 = (List<BitzModel>)finalList;
+                    if (f4.Count == 0)
+                    {
+                        timer2.Stop();
+                    }
+
+                    break;
+                case "Upbit":
+                    finalList = upbit.UpbitF();
+
+                    List<UpbitModel> f5 = (List<UpbitModel>)finalList;
+                    if (f5.Count == 0)
+                    {
+                        timer2.Stop();
+                    }
+
+                    break;
+                case "Upbit30":
+                    finalList = upbit30.Upbit30F();
+
+                    List<UpbitModel> f6 = (List<UpbitModel>)finalList;
+                    if (f6.Count == 0)
+                    {
+                        timer2.Stop();
+                    }
+
+                    break;
+            }
+            //List<RModel> finalList = binance30.Binance30F();
+
+            dgvMain.DataSource = finalList;
+            
+            
+
+            //if (timeronoff == 1)
+            //{
+
+            //}
+            //else
+            //{
+
+            //}
+
+
+        }
     }
 }
