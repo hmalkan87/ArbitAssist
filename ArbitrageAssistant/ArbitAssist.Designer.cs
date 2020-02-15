@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ArbitAssist));
             this.dgvMain = new System.Windows.Forms.DataGridView();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
@@ -42,11 +42,11 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.tsb_Bitz = new System.Windows.Forms.ToolStripButton();
             this.tsl_Space02 = new System.Windows.Forms.ToolStripLabel();
-            this.tsb_Binance30 = new System.Windows.Forms.ToolStripButton();
+            this.tsb_Upbit30 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsb_Upbit = new System.Windows.Forms.ToolStripButton();
             this.tsl_Space01 = new System.Windows.Forms.ToolStripLabel();
-            this.tsb_Upbit30 = new System.Windows.Forms.ToolStripButton();
+            this.tsb_Binance30 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsb_Binance = new System.Windows.Forms.ToolStripButton();
             this.tspRefresh = new System.Windows.Forms.ToolStripButton();
@@ -73,14 +73,14 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvMain.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvMain.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.HotTrack;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMain.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvMain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMain.Location = new System.Drawing.Point(22, 102);
             this.dgvMain.Name = "dgvMain";
@@ -186,15 +186,16 @@
             this.tsl_Space02.Size = new System.Drawing.Size(10, 22);
             this.tsl_Space02.Text = " ";
             // 
-            // tsb_Binance30
+            // tsb_Upbit30
             // 
-            this.tsb_Binance30.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.tsb_Binance30.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_Binance30.Name = "tsb_Binance30";
-            this.tsb_Binance30.Size = new System.Drawing.Size(73, 22);
-            this.tsb_Binance30.Text = "Binance(30)";
-            this.tsb_Binance30.ToolTipText = "Sonuç Değerine Göre İlk 30 ve Son 30";
-            this.tsb_Binance30.Click += new System.EventHandler(this.Binance30_Run);
+            this.tsb_Upbit30.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tsb_Upbit30.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_Upbit30.Name = "tsb_Upbit30";
+            this.tsb_Upbit30.Size = new System.Drawing.Size(60, 22);
+            this.tsb_Upbit30.Text = "Upbit(30)";
+            this.tsb_Upbit30.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.tsb_Upbit30.ToolTipText = "Sonuç Değerine Göre İlk 30 ve Son 30";
+            this.tsb_Upbit30.Click += new System.EventHandler(this.Upbit30_Run);
             // 
             // toolStripSeparator1
             // 
@@ -220,16 +221,15 @@
             this.tsl_Space01.Size = new System.Drawing.Size(10, 22);
             this.tsl_Space01.Text = " ";
             // 
-            // tsb_Upbit30
+            // tsb_Binance30
             // 
-            this.tsb_Upbit30.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.tsb_Upbit30.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_Upbit30.Name = "tsb_Upbit30";
-            this.tsb_Upbit30.Size = new System.Drawing.Size(60, 22);
-            this.tsb_Upbit30.Text = "Upbit(30)";
-            this.tsb_Upbit30.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.tsb_Upbit30.ToolTipText = "Sonuç Değerine Göre İlk 30 ve Son 30";
-            this.tsb_Upbit30.Click += new System.EventHandler(this.Upbit30_Run);
+            this.tsb_Binance30.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tsb_Binance30.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_Binance30.Name = "tsb_Binance30";
+            this.tsb_Binance30.Size = new System.Drawing.Size(73, 22);
+            this.tsb_Binance30.Text = "Binance(30)";
+            this.tsb_Binance30.ToolTipText = "Sonuç Değerine Göre İlk 30 ve Son 30";
+            this.tsb_Binance30.Click += new System.EventHandler(this.Binance30_Run);
             // 
             // toolStripSeparator2
             // 
@@ -277,30 +277,30 @@
             // saniyeToolStripMenuItem
             // 
             this.saniyeToolStripMenuItem.Name = "saniyeToolStripMenuItem";
-            this.saniyeToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.saniyeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saniyeToolStripMenuItem.Text = "3 saniye";
-            this.saniyeToolStripMenuItem.Click += new System.EventHandler(this.Set_TimerInterval_3);
+            this.saniyeToolStripMenuItem.Click += new System.EventHandler(this.Set_TimerInterval);
             // 
             // saniyeToolStripMenuItem1
             // 
             this.saniyeToolStripMenuItem1.Name = "saniyeToolStripMenuItem1";
-            this.saniyeToolStripMenuItem1.Size = new System.Drawing.Size(122, 22);
+            this.saniyeToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.saniyeToolStripMenuItem1.Text = "5 saniye";
-            this.saniyeToolStripMenuItem1.Click += new System.EventHandler(this.Set_TimerInterval_5);
+            this.saniyeToolStripMenuItem1.Click += new System.EventHandler(this.Set_TimerInterval);
             // 
             // saniyeToolStripMenuItem2
             // 
             this.saniyeToolStripMenuItem2.Name = "saniyeToolStripMenuItem2";
-            this.saniyeToolStripMenuItem2.Size = new System.Drawing.Size(122, 22);
+            this.saniyeToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
             this.saniyeToolStripMenuItem2.Text = "10 saniye";
-            this.saniyeToolStripMenuItem2.Click += new System.EventHandler(this.Set_TimerInterval_10);
+            this.saniyeToolStripMenuItem2.Click += new System.EventHandler(this.Set_TimerInterval);
             // 
             // saniyeToolStripMenuItem3
             // 
             this.saniyeToolStripMenuItem3.Name = "saniyeToolStripMenuItem3";
-            this.saniyeToolStripMenuItem3.Size = new System.Drawing.Size(122, 22);
+            this.saniyeToolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
             this.saniyeToolStripMenuItem3.Text = "30 saniye";
-            this.saniyeToolStripMenuItem3.Click += new System.EventHandler(this.Set_TimerInterval_30);
+            this.saniyeToolStripMenuItem3.Click += new System.EventHandler(this.Set_TimerInterval);
             // 
             // notifyIcon1
             // 

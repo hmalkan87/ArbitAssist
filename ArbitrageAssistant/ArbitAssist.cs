@@ -46,29 +46,11 @@ namespace ArbitrageAssistant
         //    }
         //}
 
-
-        private void Set_TimerInterval_3(object sender, EventArgs e)
+        private void Set_TimerInterval(object sender, EventArgs e)
         {
-            timer2.Interval = 3000;
-            tssl_Status.Text = "Yenileme Sıklığı: 3 saniye";
-        }
-
-        private void Set_TimerInterval_5(object sender, EventArgs e)
-        {
-            timer2.Interval = 5000;
-            tssl_Status.Text = "Yenileme Sıklığı: 5 saniye";
-        }
-
-        private void Set_TimerInterval_10(object sender, EventArgs e)
-        {
-            timer2.Interval = 10000;
-            tssl_Status.Text = "Yenileme Sıklığı: 10 saniye";
-        }
-
-        private void Set_TimerInterval_30(object sender, EventArgs e)
-        {
-            timer2.Interval = 30000;
-            tssl_Status.Text = "Yenileme Sıklığı: 30 saniye";
+            int intervalValue = Convert.ToInt32(sender.ToString().Replace(" saniye", ""));
+            timer2.Interval = intervalValue * 1000;
+            tssl_Status.Text = $"Yenileme Sıklığı: {intervalValue} saniye";
         }
 
         private void Timer_Stop(object sender, EventArgs e)
@@ -425,5 +407,6 @@ namespace ArbitrageAssistant
 
 
         }
+
     }
 }

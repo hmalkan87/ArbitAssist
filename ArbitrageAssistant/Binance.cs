@@ -26,7 +26,8 @@ namespace ArbitrageAssistant
             }
             catch (Exception ee)
             {
-                //    ArbitAssist arbitAssist = new ArbitAssist();
+                //ArbitAssist arbitAssist = new ArbitAssist();
+                //arbitAssist.lbl_Header.Text = "ooof";
                 //    arbitAssist.timer2.Stop();
                 ////arbitAssist.timeronoff = 0;
                 MessageBox.Show("Bağlanamadı! İnternet bağlantınızı kontrol edip uygulamayı tekrar çalıştırmayı deneyin.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
