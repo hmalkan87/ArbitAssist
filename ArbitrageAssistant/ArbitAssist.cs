@@ -68,11 +68,6 @@ namespace ArbitrageAssistant
             }
         }
 
-        //public void St()
-        //{
-        //    timer2.Stop();
-        //}
-
         private void Binance_Run(object sender, EventArgs e)
         {
             List<BinanceModel> finalList = null;
@@ -322,91 +317,68 @@ namespace ArbitrageAssistant
 
         private void timer2_Tick(object sender, EventArgs e)
         {
-            //SetInfo();
-            //binance30.Binance30F();
-            object finalList = null;
-            //List<BitzModel> finalList = null;
-
             switch (market)
             {
                 case "Binance":
-                    finalList = binance.BinanceF();
-
-                    List<BinanceModel> f1 = (List<BinanceModel>)finalList;
-                    if (f1.Count == 0)
+                    List<BinanceModel> binanceList = binance.BinanceF();
+                    if (binanceList.Count == 0)
                     {
                         timer2.Stop();
                     }
+                    dgvMain.DataSource = binanceList;
 
                     break;
+
                 case "Binance30":
-                    finalList = binance30.Binance30F();
-
-                    List<BinanceModel> f2 = (List<BinanceModel>)finalList;
-                    if (f2.Count == 0)
+                    List<BinanceModel> binance30List = binance30.Binance30F();
+                    if (binance30List.Count == 0)
                     {
                         timer2.Stop();
                     }
+                    dgvMain.DataSource = binance30List;
 
                     break;
+
                 case "Bitz":
-                    finalList = bitz.BitzF();
-
-                    List<BitzModel> f3 = (List<BitzModel>)finalList;
-                    if (f3.Count == 0)
+                    List<BitzModel> bitzList = bitz.BitzF();
+                    if (bitzList.Count == 0)
                     {
                         timer2.Stop();
                     }
+                    dgvMain.DataSource = bitzList;
 
                     break;
+
                 case "Bitz30":
-                    finalList = bitz30.Bitz30F();
-
-                    List<BitzModel> f4 = (List<BitzModel>)finalList;
-                    if (f4.Count == 0)
+                    List<BitzModel> bitz30List = bitz30.Bitz30F();
+                    if (bitz30List.Count == 0)
                     {
                         timer2.Stop();
                     }
+                    dgvMain.DataSource = bitz30List;
 
                     break;
+
                 case "Upbit":
-                    finalList = upbit.UpbitF();
-
-                    List<UpbitModel> f5 = (List<UpbitModel>)finalList;
-                    if (f5.Count == 0)
+                    List<UpbitModel> upbitList = upbit.UpbitF();
+                    if (upbitList.Count == 0)
                     {
                         timer2.Stop();
                     }
+                    dgvMain.DataSource = upbitList;
 
                     break;
-                case "Upbit30":
-                    finalList = upbit30.Upbit30F();
 
-                    List<UpbitModel> f6 = (List<UpbitModel>)finalList;
-                    if (f6.Count == 0)
+                case "Upbit30":
+                    List<UpbitModel> upbit30List = upbit30.Upbit30F();
+                    if (upbit30List.Count == 0)
                     {
                         timer2.Stop();
                     }
+                    dgvMain.DataSource = upbit30List;
 
                     break;
             }
-            //List<RModel> finalList = binance30.Binance30F();
-
-            dgvMain.DataSource = finalList;
-            
-            
-
-            //if (timeronoff == 1)
-            //{
-
-            //}
-            //else
-            //{
-
-            //}
-
-
         }
-
     }
 }
